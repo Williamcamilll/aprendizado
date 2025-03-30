@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plataforma de Cobrança Avançada</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plataforma de Cobrança - Bradesco Style</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #003366;
-      --secondary: #00509e;
-      --accent: #c8102e;
-      --bg: #f4f7fa;
-      --text: #333;
+      --primary: #cc092f;
+      --primary-dark: #96061e;
+      --bg: #f4f4f4;
+      --text: #333333;
+      --accent: #cc092f;
     }
 
     * {
@@ -28,47 +28,52 @@
     }
 
     header {
-      background-color: var(--accent);
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #fff;
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-bottom: 4px solid var(--primary-dark);
     }
 
     header h1 {
-      font-size: 2.2rem;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
       margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+      font-weight: 600;
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      opacity: 0.9;
     }
 
     nav {
-      background-color: var(--primary);
+      background-color: var(--primary-dark);
       padding: 1rem;
     }
 
     nav ul {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
       list-style: none;
-      gap: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
     }
 
     nav ul li a {
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
       padding: 0.5rem 1rem;
-      background-color: var(--secondary);
-      border-radius: 4px;
+      background-color: var(--primary);
+      border-radius: 6px;
+      font-weight: 600;
       transition: all 0.3s ease;
     }
 
     nav ul li a:hover {
-      background-color: #fff;
-      color: var(--primary);
+      background-color: #ffffff;
+      color: var(--primary-dark);
     }
 
     main {
@@ -81,7 +86,7 @@
     }
 
     .card {
-      background: white;
+      background: #fff;
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
@@ -109,13 +114,37 @@
       background-color: var(--primary);
       color: white;
       margin-top: 2rem;
+      border-top: 4px solid var(--primary-dark);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      main {
+        padding: 1.5rem 1rem;
+      }
+
+      .card {
+        padding: 1.5rem 1rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Plataforma Avançada de Treinamento em Cobrança</h1>
-    <p>Escolha um módulo abaixo para começar seu aprendizado</p>
+    <h1>Plataforma Avançada de Treinamento</h1>
+    <p>Inspirado na performance e seriedade do Bradesco</p>
   </header>
 
   <nav>
@@ -138,32 +167,32 @@
     <a href="graficos.html" class="card">
       <i class="fas fa-chart-line"></i>
       <h3>Gráficos</h3>
-      <p>Visualize seus dados e aumente sua performance.</p>
+      <p>Visualize dados para melhorar seu desempenho.</p>
     </a>
     <a href="jogo.html" class="card">
       <i class="fas fa-gamepad"></i>
       <h3>Jogos</h3>
-      <p>Treine com situações reais de cobrança.</p>
+      <p>Simulações práticas de atendimento e cobrança.</p>
     </a>
     <a href="tecnicas.html" class="card">
       <i class="fas fa-tools"></i>
       <h3>Técnicas</h3>
-      <p>Aprenda abordagens eficazes de negociação.</p>
+      <p>Conheça abordagens eficazes de negociação.</p>
     </a>
     <a href="planilhas.html" class="card">
       <i class="fas fa-file-excel"></i>
       <h3>Planilhas</h3>
-      <p>Organize suas metas com modelos prontos.</p>
+      <p>Modelos prontos para controlar metas e resultados.</p>
     </a>
     <a href="dicas.html" class="card">
       <i class="fas fa-lightbulb"></i>
       <h3>Dicas</h3>
-      <p>Pequenas ações, grandes resultados.</p>
+      <p>Ações simples que geram grandes resultados.</p>
     </a>
   </main>
 
   <footer>
-    &copy; 2025 Plataforma de Cobrança Avançada. Todos os direitos reservados.
+    &copy; 2025 Plataforma de Treinamento Bradesco-Inspired. Todos os direitos reservados.
   </footer>
 </body>
 </html>
