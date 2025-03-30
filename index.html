@@ -1,29 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Início - Plataforma de Cobrança Avançada</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Cobrança Avançada</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary: #003366;
+      --secondary: #00509e;
+      --accent: #c8102e;
+      --bg: #f4f7fa;
+      --text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #333;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
+
     header {
-      background: #c8102e;
-      color: white;
-      padding: 1.5rem;
+      background-color: var(--accent);
+      color: #fff;
+      padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
+
     header h1 {
+      font-size: 2.2rem;
       margin-bottom: 0.5rem;
     }
+
     header p {
       font-size: 1.1rem;
     }
+
+    nav {
+      background-color: var(--primary);
+      padding: 1rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      background-color: var(--secondary);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #fff;
+      color: var(--primary);
+    }
+
     main {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -32,26 +79,34 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .card {
       background: white;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
       text-decoration: none;
-      color: #333;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 6px solid #c8102e;
-      font-weight: 500;
+      color: var(--text);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 6px solid var(--accent);
     }
+
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
+
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
-      background: #c8102e;
+      padding: 1.5rem;
+      background-color: var(--primary);
       color: white;
       margin-top: 2rem;
     }
@@ -60,22 +115,55 @@
 <body>
   <header>
     <h1>Plataforma Avançada de Treinamento em Cobrança</h1>
-    <p>Escolha um módulo abaixo para começar seu treinamento</p>
+    <p>Escolha um módulo abaixo para começar seu aprendizado</p>
   </header>
 
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="motivacao.html">Motivação</a></li>
+      <li><a href="graficos.html">Gráficos</a></li>
+      <li><a href="simulacoes.html">Simulações</a></li>
+      <li><a href="tecnicas.html">Técnicas</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <a class="card" href="scripts.html">🧾 Scripts Avançados</a>
-    <a class="card" href="tecnicas.html">📌 Técnicas Científicas</a>
-    <a class="card" href="jogo.html">🎮 Simulação Interativa</a>
-    <a class="card" href="motivacao.html">💡 Motivação Psicológica</a>
-    <a class="card" href="planilhas.html">📂 Planilhas Estratégicas</a>
-    <a class="card" href="dicas.html">✅ Dicas Práticas</a>
-    <a class="card" href="estudo.html">📚 Estudos Científicos</a>
-    <a class="card" href="simulacoes.html">💬 Simulações Realistas</a>
+    <a href="motivacao.html" class="card">
+      <i class="fas fa-bolt"></i>
+      <h3>Motivação</h3>
+      <p>Impulsione sua equipe com estratégias motivacionais.</p>
+    </a>
+    <a href="graficos.html" class="card">
+      <i class="fas fa-chart-line"></i>
+      <h3>Gráficos</h3>
+      <p>Visualize seus dados e aumente sua performance.</p>
+    </a>
+    <a href="jogo.html" class="card">
+      <i class="fas fa-gamepad"></i>
+      <h3>Jogos</h3>
+      <p>Treine com situações reais de cobrança.</p>
+    </a>
+    <a href="tecnicas.html" class="card">
+      <i class="fas fa-tools"></i>
+      <h3>Técnicas</h3>
+      <p>Aprenda abordagens eficazes de negociação.</p>
+    </a>
+    <a href="planilhas.html" class="card">
+      <i class="fas fa-file-excel"></i>
+      <h3>Planilhas</h3>
+      <p>Organize suas metas com modelos prontos.</p>
+    </a>
+    <a href="dicas.html" class="card">
+      <i class="fas fa-lightbulb"></i>
+      <h3>Dicas</h3>
+      <p>Pequenas ações, grandes resultados.</p>
+    </a>
   </main>
 
   <footer>
-    © 2025 Plataforma de treinamento | Desenvolvido por William Camilo
+    &copy; 2025 Plataforma de Cobrança Avançada. Todos os direitos reservados.
   </footer>
 </body>
 </html>
