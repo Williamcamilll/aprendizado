@@ -1,5 +1,3 @@
-// Jogo de simulação de atendimento com feedback educativo
-
 document.addEventListener("DOMContentLoaded", () => {
   const perguntas = [
     {
@@ -97,30 +95,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let indice = 0;
   let acertos = 0;
+
   const perguntaEl = document.getElementById("pergunta");
   const opcoesEl = document.getElementById("opcoes");
   const feedbackEl = document.getElementById("feedback");
+  const quizContainer = document.getElementById("quiz-container");
+
+  // 🎵 Áudios
+  const somAcerto = new Audio("audio/acerto.mp3");
+  const somErro = new Audio("audio/erro.mp3");
+
+  // 📊 Barra de progresso
+  const progresso = document.createElement("div");
+  progresso.style.height = "8px";
+  progresso.style.background = "#ddd";
+  progresso.style.borderRadius = "4px";
+  progresso.style.marginBottom = "1rem";
+  progresso.innerHTML = `
+    <div id="barra-progresso" style="height: 100%; width: 0%; background: #cc092f; border-radius: 4px; transition: width 0.4s;"></div>
+  `;
+  quizContainer.prepend(progresso);
+
+  function atualizarBarra() {
+    const barra = document.getElementById("barra-progresso");
+    const perc = ((indice / perguntas.length) * 100).toFixed(0);
+    barra.style.width = `${perc}%`;
+  }
 
   function mostrarResultadoFinal() {
     const desempenho = ((acertos / perguntas.length) * 100).toFixed(0);
     let mensagemFinal = "";
 
     if (desempenho == 100) {
-      mensagemFinal = "🌟 Excelente! Você acertou todas as questões!";
+      mensagemFinal = "🌟 Excelente! Você acertou todas!";
     } else if (desempenho >= 60) {
-      mensagemFinal = "👍 Muito bom! Você está acima da média.";
+      mensagemFinal = "👍 Muito bom! Você está no caminho certo.";
     } else if (desempenho >= 40) {
-      mensagemFinal = "🧐 Quase lá! Continue estudando para melhorar.";
+      mensagemFinal = "🧐 Quase lá! Treine mais um pouco.";
     } else {
-      mensagemFinal = "💡 Não desanime! Treine mais e logo terá melhores resultados.";
+      mensagemFinal = "💡 Não desanime! Praticar leva à perfeição.";
     }
 
-    perguntaEl.innerHTML = `<strong>Resultado final: ${desempenho}% de acerto.</strong>`;
-    opcoesEl.innerHTML = `<p style='font-size: 1.2rem;'>${mensagemFinal}</p>`;
-    feedbackEl.innerHTML = "<p>Personagem Treinador: <strong>WilliamBot</strong> diz: 'Continue praticando, o sucesso vem com o esforço!'</p>";
+    quizContainer.innerHTML = `
+      <h2>✅ Resultado Final</h2>
+      <p style="font-size:1.2rem;"><strong>Pontuação:</strong> ${acertos}/${perguntas.length}</p>
+      <p style="margin: 1rem 0;">${mensagemFinal}</p>
+      <button onclick="location.reload()" style="background:#cc092f;color:white;border:none;padding:0.75rem 1.5rem;border-radius:8px;font-weight:bold;cursor:pointer;">🔁 Jogar novamente</button>
+    `;
   }
 
   function mostrarPergunta() {
+    atualizarBarra();
+
     const atual = perguntas[indice];
     perguntaEl.textContent = atual.pergunta;
     opcoesEl.innerHTML = "";
@@ -129,34 +155,41 @@ document.addEventListener("DOMContentLoaded", () => {
     atual.opcoes.forEach((opcao, i) => {
       const btn = document.createElement("button");
       btn.textContent = opcao;
+      btn.className = "opcao";
       btn.style.padding = "0.75rem 1.25rem";
-      btn.style.margin = "0.5rem";
+      btn.style.margin = "0.5rem 0";
       btn.style.borderRadius = "8px";
       btn.style.border = "none";
       btn.style.cursor = "pointer";
-      btn.style.backgroundColor = "#00509e";
-      btn.style.color = "#ffffff";
-      btn.style.fontWeight = "500";
-      btn.onmouseover = () => btn.style.backgroundColor = "#003366";
-      btn.onmouseout = () => btn.style.backgroundColor = "#00509e";
+      btn.style.width = "100%";
+      btn.style.textAlign = "left";
+      btn.style.backgroundColor = "#f0f0f0";
+      btn.style.fontSize = "1rem";
+      btn.onmouseover = () => (btn.style.backgroundColor = "#e0e0e0");
+      btn.onmouseout = () => (btn.style.backgroundColor = "#f0f0f0");
 
       btn.onclick = () => {
+        const botoes = document.querySelectorAll(".opcao");
+        botoes.forEach(b => b.disabled = true);
+
         if (i === atual.correta) {
+          somAcerto.play();
           btn.style.backgroundColor = "#198754";
-          feedbackEl.innerHTML = `<p style=\"color:#198754\"><strong>✅ Correto!</strong> ${atual.complemento}</p>`;
+          btn.style.color = "#fff";
+          feedbackEl.innerHTML = `✅ <strong>Correto:</strong> ${atual.complemento}`;
           acertos++;
         } else {
+          somErro.play();
           btn.style.backgroundColor = "#dc3545";
-          feedbackEl.innerHTML = `<p style=\"color:#dc3545\"><strong>❌ Incorreto.</strong> ${atual.dica}</p>`;
+          btn.style.color = "#fff";
+          feedbackEl.innerHTML = `❌ <strong>Incorreto:</strong> ${atual.dica}`;
         }
-
-        document.querySelectorAll("button").forEach(button => button.disabled = true);
 
         if (indice < perguntas.length - 1) {
           indice++;
-          setTimeout(mostrarPergunta, 3000);
+          setTimeout(mostrarPergunta, 2500);
         } else {
-          setTimeout(mostrarResultadoFinal, 4000);
+          setTimeout(mostrarResultadoFinal, 3000);
         }
       };
 
@@ -166,4 +199,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mostrarPergunta();
 });
-
