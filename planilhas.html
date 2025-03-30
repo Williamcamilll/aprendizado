@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planilhas Avançadas - Plataforma de Cobrança</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #c8102e;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      border-left: 5px solid #c8102e;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #c8102e;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #900c1f;
+    }
+    #output {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #444;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #c8102e;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Planilhas Avançadas de Estudo</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html">🏠 Início</a></li>
+      <li><a href="tecnicas.html">📌 Técnicas</a></li>
+      <li><a href="scripts.html">🧾 Scripts</a></li>
+      <li><a href="planilhas.html">📂 Planilhas</a></li>
+      <li><a href="dicas.html">✅ Dicas</a></li>
+      <li><a href="resultados.html">📊 Resultados</a></li>
+      <li><a href="sobre.html">ℹ️ Sobre</a></li>
+      <li><a href="motivacao.html">💡 Motivação</a></li>
+      <li><a href="graficos.html">📈 Gráficos</a></li>
+      <li><a href="estudo.html">📚 Estudo Científico</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Recursos para Excelência em Cobrança</h2>
+  <button onclick="mostrarMensagem()">Ver exemplos avançados de planilhas</button>
+  <p id="output"></p>
+</main>
+
+<footer>
+  © 2025 Plataforma de Cobrança Avançada | Desenvolvido por William Chaves Camilo
+</footer>
+
+<script>
+  function mostrarMensagem() {
+    document.getElementById("output").innerHTML = "<strong>Exemplos Disponíveis:</strong><br>• Controle Diário de Metas<br>• Dashboard de Desempenho Mensal<br>• Análise Comparativa de Recuperação<br>• Previsão de Metas e Resultados";
+  }
+</script>
+
+</body>
+</html>
